@@ -20,7 +20,7 @@ before_script:
   - export SFDX_DISABLE_ENCRYPTION=true
   - sfdx force --help
   - sfdx force:auth:jwt:grant --clientid $CONSUMERKEY --jwtkeyfile assets/server.key --username $USERNAME --setdefaultdevhubusername
-  - sfdx force:auth:jwt:grant -i 3MVG9FS3IyroMOh6lj04LcN9zF.u0ENAUkfv8Zx3iD7fXhhIGYBlbGArtt8CpfYcTMjVSYe0nnyAI0clsw3mO -f /Users/achaturvedi/Documents/Work/SalesforceDXProj/projects/server.key -r 'https://dxhubtrialdemo--dxhubdev.cs9.my.salesforce.com/' -u achaturvedi@dxhubprod.demo.dxhubdev -a 'AC Dev Sandbox'
+  - sfdx force:auth:jwt:grant -i 3MVG9FS3IyroMOh6lj04LcN9zF.u0ENAUkfv8Zx3iD7fXhhIGYBlbGArtt8CpfYcTMjVSYe0nnyAI0clsw3mO -f assets/server.key -r 'https://dxhubtrialdemo--dxhubdev.cs9.my.salesforce.com/' -u achaturvedi@dxhubprod.demo.dxhubdev
 script:
   - sfdx force:org:create -s -f config/workspace-scratch-def.json -a travisciorg
   - sfdx force:source:push -u travisciorg
