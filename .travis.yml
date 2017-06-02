@@ -32,4 +32,4 @@ script:
   - sfdx force:org:delete -u travisciorg -p
   - mkdir mdapioutput_dir
   - sfdx force:source:convert -d mdapioutput_dir/
-  - sfdx force:mdapi:deploy -d mdapioutput_dir/ -u $SBOXUSERNAME
+  - sfdx force:mdapi:deploy -d mdapioutput_dir/ -u $SBOXUSERNAME -w 5 --verbose
