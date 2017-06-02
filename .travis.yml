@@ -17,8 +17,9 @@ before_install:
   - export PATH=./heroku/$(pwd):$PATH
 
 before_script:
-  - find $HOME -name 'url.json' -print
   - echo $HOME
+  - $HOME/.local/share/sfdx/plugins/node_modules/salesforce-alm/lib/
+  - pwd
   - export SFDX_DISABLE_ENCRYPTION=true
   - sfdx force --help
   - sfdx force:auth:jwt:grant --clientid $CONSUMERKEY --jwtkeyfile assets/server.key --username $USERNAME --setdefaultdevhubusername
