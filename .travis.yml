@@ -22,7 +22,7 @@ before_script:
   - sfdx force --help
   - sfdx force:auth:jwt:grant --clientid $CONSUMERKEY --jwtkeyfile assets/server.key --username $USERNAME --setdefaultdevhubusername
   - sed -i -e 's/https:\/\/login.salesforce.com/https:\/\/test.salesforce.com/' $HOME/.local/share/heroku/plugins/node_modules/salesforce-alm/lib/urls.json
-  - sfdx force:auth:jwt:grant -i $SBOXCONSUMERKEY -f assets/server.key -u achaturvedi@dxhubprod.demo.dxhubdev
+  - sfdx force:auth:jwt:grant --clientid $SBOXCONSUMERKEY --jwtkeyfile assets/server.key --username $SBOXUSER
 
 script:
   - sfdx force:org:create -s -f config/workspace-scratch-def.json -a travisciorg
