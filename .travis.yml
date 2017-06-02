@@ -17,7 +17,7 @@ before_install:
   - export PATH=./heroku/$(pwd):$PATH
 
 before_script:
-  - pwd
+  - find $HOME -name 'url.json' -print
   - echo $HOME
   - export SFDX_DISABLE_ENCRYPTION=true
   - sfdx force --help
