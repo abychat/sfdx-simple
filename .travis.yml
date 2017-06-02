@@ -22,13 +22,13 @@ before_script:
   - sfdx force --help
   - sfdx force:auth:jwt:grant --clientid $CONSUMERKEY --jwtkeyfile assets/server.key --username $USERNAME --setdefaultdevhubusername
   - sed -i -e 's/https:\/\/login.salesforce.com/https:\/\/test.salesforce.com/' $HOME/.local/share/heroku/plugins/node_modules/salesforce-alm/lib/urls.json
-  - sfdx force:auth:jwt:grant -i 3MVG9FS3IyroMOh6lj04LcN9zF.u0ENAUkfv8Zx3iD7fXhhIGYBlbGArtt8CpfYcTMjVSYe0nnyAI0clsw3mO -f assets/server.key -r 'https://dxhubtrialdemo--dxhubdev.cs9.my.salesforce.com/' -u achaturvedi@dxhubprod.demo.dxhubdev
+  - sfdx force:auth:jwt:grant -i $SBOXCONSUMERKEY -f assets/server.key -r 'https://dxhubtrialdemo--dxhubdev.cs9.my.salesforce.com/' -u $SBOXUSER
 
 script:
   - sfdx force:org:create -s -f config/workspace-scratch-def.json -a travisciorg
   - sfdx force:source:push -u travisciorg
   - sfdx force:apex:test:run -r tap
-  - sleep 2m
+  - sleep 4m
   - sfdx force:org:delete -u travisciorg -p
   - mkdir mdapioutput_dir
   - sfdx force:source:convert -d mdapioutput_dir/
