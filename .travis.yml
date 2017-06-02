@@ -20,12 +20,8 @@ before_script:
   - echo $HOME
   - export SFDX_DISABLE_ENCRYPTION=true
   - sfdx force --help
-  - cd /
-  - pwd
-  - ls
-  - find ./* -name "urls.json" -print
-  - echo 'AFTER FIND AND CD'
   - sfdx force:auth:jwt:grant --clientid $CONSUMERKEY --jwtkeyfile assets/server.key --username $USERNAME --setdefaultdevhubusername
+  - sed -i -e 's/https:\/\/login.salesforce.com/https:\/\/test.salesforce.com/' $HOME/.local/share/sfdx/plugins/node_modules/salesforce-alm/lib/urls.json
   - sfdx force:auth:jwt:grant -i $SBOXCONSUMERKEY -f assets/server.key -u achaturvedi@dxhubprod.demo.dxhubdev
 
 script:
