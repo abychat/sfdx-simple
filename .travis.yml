@@ -18,10 +18,10 @@ before_install:
 
 before_script:
   - echo $HOME
-  - cd $HOME/.local/share/sfdx/plugins/node_modules/salesforce-alm/lib/
-  - pwd
   - export SFDX_DISABLE_ENCRYPTION=true
   - sfdx force --help
+  - cd $HOME/.local/share/sfdx/plugins/node_modules/salesforce-alm/lib/
+  - pwd
   - sfdx force:auth:jwt:grant --clientid $CONSUMERKEY --jwtkeyfile assets/server.key --username $USERNAME --setdefaultdevhubusername
   - sfdx force:auth:jwt:grant -i $SBOXCONSUMERKEY -f assets/server.key -u achaturvedi@dxhubprod.demo.dxhubdev
 
