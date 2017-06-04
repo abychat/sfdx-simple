@@ -31,5 +31,8 @@ script:
   - mkdir mdapioutput_dir
   - sfdx force:source:convert -d mdapioutput_dir/
   - sfdx force:mdapi:deploy -d mdapioutput_dir/ -u $SBOXUSERNAME -w 5 --verbose
-  - sleep 2m
+
+
+after_script:
+  - sleep 4m
   - sfdx force:org:delete -u travisciorg -p
